@@ -1,10 +1,18 @@
-$text-weight: 300;
-$currency-weight: 500;
-$title-weight: 700;
-
 $color-main: #bb5432;
 $color-alt: #f1c5b6;
 $color-light: #fff;
 
+$text-weight: 300;
+$text-color: $color-main;
+
+$currency-weight: 500;
+
+$title-weight: 700;
+$title-size: 2em;
+
+$subtitle-size: 1.3em;
+
 $transition-fast: 0.2s;
 $transition-slow: 1s;
+
+$gutter: 0.8rem;
