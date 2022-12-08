@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-function Header({baseAmount}) {
+function Header({ baseAmount }) {
   return (
     <header className="header">
       <h1 className="header-title">Converter</h1>
@@ -12,7 +12,7 @@ function Header({baseAmount}) {
 }
 
 Header.propTypes = {
-baseAmount: PropTypes.number.isRequired,
+  baseAmount: PropTypes.number.isRequired,
 };
 
 export default Header;

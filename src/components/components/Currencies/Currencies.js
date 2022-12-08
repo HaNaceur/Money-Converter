@@ -11,7 +11,7 @@ function Currencies({ currencies }) {
         {currencies.map((currency) => (
           <Currency
             key={currency.name}
-            name={currency.name}
+            {...currency} // on passe tout à Currency, name+rate
           />
         ))}
       </ul>
@@ -20,7 +20,9 @@ function Currencies({ currencies }) {
 }
 
 Currencies.propTypes = {
-
+  currencies: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  })).isRequired, // un tableau d'objet, ayant une clé "name" qui est un string qui est requis
 };
 
 export default Currencies;
