@@ -53,5 +53,9 @@
     line-height: 0.8rem; // magic number
     vertical-align: middle;
     text-align: center;
+
+    &.close {
+      transform: rotate(90deg);
+    }
   }
 }

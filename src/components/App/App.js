@@ -16,7 +16,7 @@ class App extends React.Component {
     super(props); // très important - on appelle le constructeur de React.Component en lui passant les props
 
     this.state = {
-      isOpen: true,
+      showCurrenciesList: true,
       baseAmount: 1,
       currencies: data,
       selected: {
@@ -41,13 +41,15 @@ class App extends React.Component {
               baseAmount: oldState.baseAmount - 1,
             }));
           }}
+          
+          showCurrenciesList={showCurrenciesList}
           onToggle={() => {
             this.setState((oldState) => ({
-              isOpen: !oldState.isOpen,
+              showCurrenciesList: !oldState.showCurrenciesList,
             }));
           }}
         />
-        {this.state.isOpen && (
+        {this.state.showCurrenciesList && (
           <Currencies currencies={this.state.currencies} />
         )}
         <Amount

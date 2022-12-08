@@ -6,12 +6,13 @@ function Header({
   baseAmount,
   onIncrement,
   onDecrement,
+  showCurrenciesList,
   onToggle,
 }) {
   return (
     <header className="header">
       <button
-        className="toggle-btn"
+        className={`toggle-btn ${showCurrenciesList ? 'open' : 'close'}`}
         type="button"
         onClick={onToggle}
       >
@@ -50,6 +51,7 @@ Header.propTypes = {
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
+  showCurrenciesList: PropTypes.bool.isRequired,
 };
 
 export default Header;
