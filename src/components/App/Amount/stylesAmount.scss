@@ -1,0 +1,17 @@
+@use "../../styles/vars";
+
+.amount {
+  background-color: vars.$color-light;
+  padding: vars.$gutter * 3 0;
+  text-align: center;
+
+  & > &-value {
+    font-weight: vars.$title-weight;
+    font-size: vars.$title-size;
+  }
+
+  & > &-currency {
+    margin-top: vars.$gutter;
+    font-size: vars.$subtitle-size;
+  }
+}

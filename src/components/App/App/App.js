@@ -8,7 +8,7 @@ import './styles.scss';
 function App() {
   return (
     <div className="app">
-      <Header />
+      <Header baseAmount={1}/>
       <Currencies />
       <Amount />
     </div>
