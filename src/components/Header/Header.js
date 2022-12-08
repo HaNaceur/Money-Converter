@@ -6,7 +6,7 @@ function Header({ baseAmount }) {
   return (
     <header className="header">
       <h1 className="header-title">Converter</h1>
-      <p className="header-amount">{baseAmount} euro</p>
+      <p className="header-amount">{baseAmount} euro{baseAmount > 1 && 's'}</p>
     </header>
   );
 }

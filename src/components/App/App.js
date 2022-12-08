@@ -12,7 +12,7 @@ class App extends React.Component {
   constructor(props) {
     super(props); // très important - on appelle le constructeur de React.Component en lui passant les props
 
-    this.data = {
+    this.state = {
       baseAmount: 1,
       currencies: data,
       selected: {
@@ -23,13 +23,11 @@ class App extends React.Component {
   }
 
   render() {
-    const state = this.data;
-
     return (
       <div className="app">
-        <Header baseAmount={state.baseAmount} />
-        <Currencies currencies={state.currencies} />
-        <Amount value={state.selected.rate} currency={state.selected.name} />
+        <Header baseAmount={this.state.baseAmount} />
+        <Currencies currencies={this.state.currencies} />
+        <Amount value={this.state.selected.rate} currency={this.state.selected.name} />
       </div>
     );
   }
