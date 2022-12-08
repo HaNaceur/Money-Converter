@@ -1,11 +1,10 @@
+$text-weight: 300;
+$currency-weight: 500;
+$title-weight: 700;
 
+$color-main: #bb5432;
+$color-alt: #f1c5b6;
+$color-light: #fff;
 
-$main-color: #bb5432;
-$alternative-color: #f1c5b6;
-$light-color:#fff;
-
-@mixin container {
-  border: 2px solid #bbb;
-  padding: 2rem;
-  margin: 1rem;
-}
+$transition-fast: 0.2s;
+$transition-slow: 1s;
