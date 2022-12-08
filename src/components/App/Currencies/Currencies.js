@@ -1,19 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import Currency from '../Currency/Currency';
 
-function Currencies({}) {
+function Currencies({ currencies }) {
   return (
     <main className="currencies">
       <div className="currencies-title">Currencies</div>
       <ul className="currencies-list">
-        <li className="currency">Australian Dollar</li>
-        <li className="currency">Bulgarian Lev</li>
-        <li className="currency">Brazilian Real</li>
-        <li className="currency">Canadian Dollar</li>
-        <li className="currency">Swiss Franc</li>
-        <li className="currency">Chinese Renminbi Yuan</li>
-        <li className="currency">Czech Koruna'</li>
+        {currencies.map((currency) => (
+          <Currency
+            key={currency.name}
+            name={currency.name}
+          />
+        ))}
       </ul>
     </main>
   );

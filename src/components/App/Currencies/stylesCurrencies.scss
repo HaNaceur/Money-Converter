@@ -1,13 +1,16 @@
-@use "reset";
-@use "vars";
+@use "../../styles/vars";
 
-body {
-  font-family: sans-serif;
-  font-size: 100%;
-  color: vars.$main-color;
-}
+.currencies {
+  background-color: vars.$color-light;
+  max-height: 250px;
+  overflow-y: auto;
 
-#root {
-  max-width: 500px;
-  margin: 0 auto;
+  & > &-title {
+    padding: vars.$gutter;
+    margin-top: vars.$gutter;
+    font-weight: vars.$title-weight;
+  }
+
+  & > &-list {
+  }
 }
