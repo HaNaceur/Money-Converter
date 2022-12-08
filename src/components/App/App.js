@@ -27,10 +27,19 @@ class App extends React.Component {
   }
 
   render() {
+    const {
+      baseAmount,
+      showCurrenciesList,
+      currencies,
+      selected,
+    } = this.state;
+
+    const calculatedSelectedRate = roundAtDecimal(selected.rate * baseAmount, 2);
+
     return (
       <div className="app">
         <Header
-          baseAmount={this.state.baseAmount}
+          baseAmount={baseAmount}
           onIncrement={() => {
             this.setState((oldState) => ({
               baseAmount: oldState.baseAmount + 1,
@@ -41,7 +50,7 @@ class App extends React.Component {
               baseAmount: oldState.baseAmount - 1,
             }));
           }}
-          
+
           showCurrenciesList={showCurrenciesList}
           onToggle={() => {
             this.setState((oldState) => ({
@@ -49,12 +58,12 @@ class App extends React.Component {
             }));
           }}
         />
-        {this.state.showCurrenciesList && (
-          <Currencies currencies={this.state.currencies} />
+        {showCurrenciesList && (
+          <Currencies currencies={currencies} />
         )}
         <Amount
-          value={roundAtDecimal(this.state.selected.rate * this.state.baseAmount, 2)}
-          currency={this.state.selected.name}
+          value={calculatedSelectedRate}
+          currency={selected.name}
         />
       </div>
     );
