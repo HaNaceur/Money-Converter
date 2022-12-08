@@ -3,7 +3,7 @@ import React from 'react';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
-import data from '../data/currencies';
+import '../data/currencies';
 import './styles.scss';
 import currencies from '../data/currencies';
 
@@ -37,14 +37,12 @@ function App() {
         currencies={converter.name}
       />
       <Footer
-        // title={recipe.footer.title}
-        // text={recipe.footer.text}
-        // le spread operator remplace les 2 lignes du dessus
-        {...recipe.footer} // on spread title+text dans Footer
+
+        {...converter.footer}
       />
     </>
   );
 }
 
-// == Export
+
 export default App;
