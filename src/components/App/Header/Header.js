@@ -1,26 +1,18 @@
+import React from 'react';
 import PropTypes from 'prop-types';
+import './styles.scss';
 
-function Header({
-  title,
-  topTitle,
-  children,
-  ...rest 
-}) {
-  console.log(children);
+function Header({}) {
   return (
-    <header
-      className="container"
-      {...rest} 
-    >
-      {topTitle}
-      <h1 className="title">{title}</h1>
-      {children}
+    <header className="header">
+      <h1 className="header-title">Converter</h1>
+      <p className="header-amount">1 euro</p>
     </header>
   );
 }
 
 Header.propTypes = {
-  title: PropTypes.string,
+
 };
 
 export default Header;
