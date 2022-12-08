@@ -4,6 +4,9 @@ import React from 'react';
 import Header from '../Header/Header';
 import Currencies from '../Currencies/Currencies';
 import Amount from '../Amount/Amount';
+
+import { roundAtDecimal } from '../../tools';
+
 import data from '../../data/currencies';
 
 import './styles.scss';
@@ -13,6 +16,7 @@ class App extends React.Component {
     super(props); // très important - on appelle le constructeur de React.Component en lui passant les props
 
     this.state = {
+      isOpen: true,
       baseAmount: 1,
       currencies: data,
       selected: {
@@ -37,10 +41,17 @@ class App extends React.Component {
               baseAmount: oldState.baseAmount - 1,
             }));
           }}
+          onToggle={() => {
+            this.setState((oldState) => ({
+              isOpen: !oldState.isOpen,
+            }));
+          }}
         />
-        <Currencies currencies={this.state.currencies} />
+        {this.state.isOpen && (
+          <Currencies currencies={this.state.currencies} />
+        )}
         <Amount
-          value={Math.round(this.state.selected.rate * this.state.baseAmount, 2)}
+          value={roundAtDecimal(this.state.selected.rate * this.state.baseAmount, 2)}
           currency={this.state.selected.name}
         />
       </div>

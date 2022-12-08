@@ -6,17 +6,25 @@ function Header({
   baseAmount,
   onIncrement,
   onDecrement,
+  onToggle,
 }) {
   return (
     <header className="header">
+      <button
+        className="toggle-btn"
+        type="button"
+        onClick={onToggle}
+      >
+        -
+      </button>
       <h1 className="header-title">Converter</h1>
       <p className="header-amount">
         <button
           type="button"
-          onClick={() => onIncrement()}
+          onClick={onDecrement} // equivaut à onClick={() => onDecrement()}
           className="header-amount-btn"
         >
-          +
+          -
         </button>
         <span className="header-amount-text">
           {baseAmount} euro{baseAmount > 1 && 's'}
@@ -27,10 +35,10 @@ function Header({
         </span>
         <button
           type="button"
-          onClick={() => onDecrement()}
+          onClick={() => onIncrement()}
           className="header-amount-btn"
         >
-          -
+          +
         </button>
       </p>
     </header>
@@ -41,6 +49,7 @@ Header.propTypes = {
   baseAmount: PropTypes.number.isRequired,
   onIncrement: PropTypes.func.isRequired,
   onDecrement: PropTypes.func.isRequired,
+  onToggle: PropTypes.func.isRequired,
 };
 
 export default Header;

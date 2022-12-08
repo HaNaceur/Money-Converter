@@ -1,6 +1,7 @@
 @use "../../styles/vars";
 
 .header {
+  position: relative;
   background-color: vars.$color-main;
   color: vars.$color-light;
   text-align: center;
@@ -24,9 +25,33 @@
       width: 2em;
       border-radius: 50%;
       margin: 0 vars.$gutter;
+
+      line-height: 0.8rem; // magic number
+      vertical-align: middle;
+      text-align: center;
     }
 
     &-text {
+      line-height: 1em;
     }
+  }
+
+  .toggle-btn {
+    position: absolute;
+    bottom: vars.$gutter;
+    right: 0;
+
+    border: none;
+    padding: calc(vars.$gutter / 2);
+    color: vars.$color-main;
+    background-color: vars.$color-alt;
+    height: 2em;
+    width: 2em;
+    border-radius: 50%;
+    margin: 0 vars.$gutter;
+
+    line-height: 0.8rem; // magic number
+    vertical-align: middle;
+    text-align: center;
   }
 }
