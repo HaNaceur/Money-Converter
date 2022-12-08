@@ -2,17 +2,45 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 
-function Header({ baseAmount }) {
+function Header({
+  baseAmount,
+  onIncrement,
+  onDecrement,
+}) {
   return (
     <header className="header">
       <h1 className="header-title">Converter</h1>
-      <p className="header-amount">{baseAmount} euro{baseAmount > 1 && 's'}</p>
+      <p className="header-amount">
+        <button
+          type="button"
+          onClick={() => onIncrement()}
+          className="header-amount-btn"
+        >
+          +
+        </button>
+        <span className="header-amount-text">
+          {baseAmount} euro{baseAmount > 1 && 's'}
+          {/*
+            ici soit on affiche 's' soit on a false et du coup ca n'affiche rien.
+            C'est comme si on avait {baseAmount <= 1 ? 'euro' : 'euros'}
+          */}
+        </span>
+        <button
+          type="button"
+          onClick={() => onDecrement()}
+          className="header-amount-btn"
+        >
+          -
+        </button>
+      </p>
     </header>
   );
 }
 
 Header.propTypes = {
   baseAmount: PropTypes.number.isRequired,
+  onIncrement: PropTypes.func.isRequired,
+  onDecrement: PropTypes.func.isRequired,
 };
 
 export default Header;

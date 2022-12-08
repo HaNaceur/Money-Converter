@@ -11,8 +11,22 @@
     font-weight: vars.$text-weight;
   }
 
-  & > &-amount {
+  &-amount {
     margin-top: vars.$gutter;
     font-size: vars.$subtitle-size;
+
+    &-btn {
+      border: none;
+      padding: calc(vars.$gutter / 2);
+      color: vars.$color-main;
+      background-color: vars.$color-light;
+      height: 2em;
+      width: 2em;
+      border-radius: 50%;
+      margin: 0 vars.$gutter;
+    }
+
+    &-text {
+    }
   }
 }

@@ -25,9 +25,24 @@ class App extends React.Component {
   render() {
     return (
       <div className="app">
-        <Header baseAmount={this.state.baseAmount} />
+        <Header
+          baseAmount={this.state.baseAmount}
+          onIncrement={() => {
+            this.setState((oldState) => ({
+              baseAmount: oldState.baseAmount + 1,
+            }));
+          }}
+          onDecrement={() => {
+            this.setState((oldState) => ({
+              baseAmount: oldState.baseAmount - 1,
+            }));
+          }}
+        />
         <Currencies currencies={this.state.currencies} />
-        <Amount value={this.state.selected.rate} currency={this.state.selected.name} />
+        <Amount
+          value={Math.round(this.state.selected.rate * this.state.baseAmount, 2)}
+          currency={this.state.selected.name}
+        />
       </div>
     );
   }
