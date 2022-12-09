@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 import Currency from '../Currency/Currency';
 
-function Currencies({ currencies }) {
+function Currencies({ currencies, onCurrencyClick }) {
   return (
     <main className="currencies">
       <div className="currencies-title">Currencies</div>
@@ -11,13 +11,14 @@ function Currencies({ currencies }) {
         {currencies.map((currency) => (
           <Currency
             key={currency.name}
+            // le onClick est envoyé dans le ...rest du Currency
             onClick={() => {
-              console.log(
-                'click dans currencies',
-                currency,
-              );
+              // on appel la callback de App en lui passant Currency
+              onCurrencyClick(currency);
             }}
-            {...currency} // on passe tout à Currency, name+rate
+
+            // on passe tout à Currency, name+rate
+            {...currency}
           />
         ))}
       </ul>
@@ -32,3 +33,4 @@ Currencies.propTypes = {
 };
 
 export default Currencies;
+

@@ -65,7 +65,13 @@ class App extends React.Component {
           onToggle={this.handleToggleCurrenciesList}
         />
         {showCurrenciesList && (
-          <Currencies currencies={currencies} />
+          <Currencies
+            currencies={currencies}
+            onCurrencyClick={(currency) => {
+              console.log('click sur currency dans App', currency);
+              this.setState({ selected: currency });
+            }}
+          />
         )}
         <Amount
           value={calculatedSelectedRate}
@@ -78,3 +84,4 @@ class App extends React.Component {
 
 // == Export
 export default App;
+
