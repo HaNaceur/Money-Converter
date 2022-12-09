@@ -11,6 +11,12 @@ function Currencies({ currencies }) {
         {currencies.map((currency) => (
           <Currency
             key={currency.name}
+            onClick={() => {
+              console.log(
+                'click dans currencies',
+                currency,
+              );
+            }}
             {...currency} // on passe tout à Currency, name+rate
           />
         ))}

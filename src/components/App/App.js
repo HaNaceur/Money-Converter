@@ -26,6 +26,24 @@ class App extends React.Component {
     };
   }
 
+  handleDecrement = () => {
+    this.setState((oldState) => ({
+      baseAmount: oldState.baseAmount - 1,
+    }));
+  };
+
+  handleIncrement = () => {
+    this.setState((oldState) => ({
+      baseAmount: oldState.baseAmount + 1,
+    }));
+  };
+
+  handleToggleCurrenciesList = () => {
+    this.setState((oldState) => ({
+      showCurrenciesList: !oldState.showCurrenciesList,
+    }));
+  };
+
   render() {
     const {
       baseAmount,
@@ -40,23 +58,11 @@ class App extends React.Component {
       <div className="app">
         <Header
           baseAmount={baseAmount}
-          onIncrement={() => {
-            this.setState((oldState) => ({
-              baseAmount: oldState.baseAmount + 1,
-            }));
-          }}
-          onDecrement={() => {
-            this.setState((oldState) => ({
-              baseAmount: oldState.baseAmount - 1,
-            }));
-          }}
+          onIncrement={this.handleIncrement}
+          onDecrement={this.handleDecrement}
 
           showCurrenciesList={showCurrenciesList}
-          onToggle={() => {
-            this.setState((oldState) => ({
-              showCurrenciesList: !oldState.showCurrenciesList,
-            }));
-          }}
+          onToggle={this.handleToggleCurrenciesList}
         />
         {showCurrenciesList && (
           <Currencies currencies={currencies} />
