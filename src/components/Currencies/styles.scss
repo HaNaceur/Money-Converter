@@ -5,12 +5,10 @@
   max-height: 250px;
   overflow-y: auto;
 
-  & > &-title {
-    padding: vars.$gutter;
-    margin-top: vars.$gutter;
-    font-weight: vars.$title-weight;
-  }
-
-  & > &-list {
+  &-search {
+    &-input {
+      border: none;
+      padding: vars.$gutter;
+    }
   }
 }
