@@ -19,10 +19,7 @@ class App extends React.Component {
       showCurrenciesList: true,
       baseAmount: 1,
       currencies: data,
-      selected: {
-        name: 'Australian Dollar',
-        rate: 1.09,
-      },
+      selectedCurrencyId: data[0].id,
     };
   }
 
@@ -44,15 +41,24 @@ class App extends React.Component {
     }));
   };
 
+  selectCurrency = (currency) => {
+    this.setState({ selectedCurrencyId: currency.id });
+  };
+
+  getSelectedCurrency = () => {
+    const { currencies, selectedCurrencyId } = this.state;
+    return currencies.find((currency) => currency.id === selectedCurrencyId);
+  };
+
   render() {
     const {
       baseAmount,
       showCurrenciesList,
       currencies,
-      selected,
     } = this.state;
 
-    const calculatedSelectedRate = roundAtDecimal(selected.rate * baseAmount, 2);
+    const selectedCurrency = this.getSelectedCurrency();
+    const calculatedSelectedRate = roundAtDecimal(selectedCurrency.rate * baseAmount, 2);
 
     return (
       <div className="app">
@@ -67,15 +73,12 @@ class App extends React.Component {
         {showCurrenciesList && (
           <Currencies
             currencies={currencies}
-            onCurrencyClick={(currency) => {
-              console.log('click sur currency dans App', currency);
-              this.setState({ selected: currency });
-            }}
+            onCurrencyClick={this.selectCurrency}
           />
         )}
         <Amount
           value={calculatedSelectedRate}
-          currency={selected.name}
+          currency={selectedCurrency.name}
         />
       </div>
     );
@@ -84,4 +87,3 @@ class App extends React.Component {
 
 // == Export
 export default App;
-

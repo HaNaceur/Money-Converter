@@ -10,15 +10,13 @@ function Currencies({ currencies, onCurrencyClick }) {
       <ul className="currencies-list">
         {currencies.map((currency) => (
           <Currency
-            key={currency.name}
+            key={currency.id}
             // le onClick est envoyé dans le ...rest du Currency
             onClick={() => {
               // on appel la callback de App en lui passant Currency
               onCurrencyClick(currency);
             }}
-
-            // on passe tout à Currency, name+rate
-            {...currency}
+            name={currency.name}
           />
         ))}
       </ul>
@@ -28,6 +26,7 @@ function Currencies({ currencies, onCurrencyClick }) {
 
 Currencies.propTypes = {
   currencies: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
   })).isRequired, // un tableau d'objet, ayant une clé "name" qui est un string qui est requis
 };

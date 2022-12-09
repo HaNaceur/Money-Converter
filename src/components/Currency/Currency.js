@@ -4,7 +4,6 @@ import './styles.scss';
 
 function Currency({
   name,
-  rate,
 
   // le onClick est passé dans le rest
   ...rest // {onClick: () => {...}}
@@ -25,7 +24,6 @@ function Currency({
 
 Currency.propTypes = {
   name: PropTypes.string.isRequired,
-  rate: PropTypes.number.isRequired,
 };
 
 export default Currency;
